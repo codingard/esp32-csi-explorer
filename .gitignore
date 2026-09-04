@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+__pycache__/
+exports/
+versions/
+preview*.jpg
+firmware/esp-csi/
+firmware/.csi-fetch-*/
