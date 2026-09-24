@@ -1,0 +1,16 @@
+{
+  "name": "esp32-csi-explorer",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "description": "ESP32 CSI USB receiver and local measurement explorer",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check app.js && node --check renderer.mjs && node --check serial.mjs && node --check csi-protocol.mjs && node --test tests/*.test.mjs",
+    "firmware:fetch": "python3 scripts/fetch_firmware.py",
+    "package": "python3 tools/package_release.py"
+  },
+  "license": "MIT"
+}

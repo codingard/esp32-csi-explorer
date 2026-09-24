@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ESP32 / CSI explorer</title><link rel="stylesheet" href="style.css"><link rel="icon" href="data:,"></head>
+<body>
+<header><h1><strong>ESP32</strong><span>/</span> CSI explorer</h1><nav><button id="connect" class="primary">Connect USB</button><button id="open">Open file</button><button id="csv" disabled>Save CSV</button><button id="json" disabled>Save session</button><button id="focus" aria-pressed="false">Focus view</button><button id="present" title="Hide controls; press Escape to exit" disabled>Present</button><a href="#about">About</a></nav></header>
+<input type="file" id="file" accept=".json,.csv" hidden>
+<div class="connectionbar"><span id="connection-state">Disconnected</span><span id="connection-detail">USB serial · 921600 baud</span><span id="packet-stats">0 packets</span><button id="samples">Open sample data</button></div>
+<div class="sessionbar"><label>Session<select id="session" disabled><option>No source</option></select></label><div class="stat"><span>SAMPLES</span><b id="sample-count">—</b></div><div class="stat"><span>CSI BINS</span><b id="bin-count">—</b></div><div class="stat"><span>AMPLITUDE</span><b id="amplitude-range">—</b></div></div>
+<div class="workspace">
+<aside class="controls panel"><h2>View controls</h2><div class="settings">
+<label>Geometry<select id="view"><option value="surface">Surface</option><option value="points">Points</option></select></label>
+<label>Window<select id="window"><option value="64">64 samples</option><option value="128">128 samples</option><option value="200" selected>200 samples</option></select></label>
+<label>Rotation <output id="angle-value">−35°</output><input id="angle" type="range" min="-75" max="75" value="-35"></label>
+<fieldset><legend>Amplitude channels</legend><div id="bins" class="bin-grid"></div></fieldset>
+<label id="speed-control">Speed<select id="speed"><option value="5">5 samples/s</option><option value="10">10 samples/s</option><option value="20" selected>20 samples/s</option><option value="40">40 samples/s</option></select></label>
+<label id="loop-control" class="check"><input id="loop" type="checkbox"> Loop session</label>
+<p id="tips" class="tip">Drag the surface to rotate. Space freezes or resumes the view.</p>
+</div></aside>
+<main class="dashboard">
+<section class="panel figure"><h2>Channel response <span>SAMPLE × BIN × AMPLITUDE</span></h2><canvas id="surface" aria-label="3D CSI amplitude surface" tabindex="0"></canvas><div class="figure-footer"><span id="surface-summary">—</span><span>CSI magnitude</span></div></section>
+<div class="charts"><section class="panel"><h2>CSI amplitude <span id="trace-label">—</span></h2><canvas id="csi" aria-label="CSI amplitude channels"></canvas></section><section class="panel"><h2>Amplitude variation <span>20-SAMPLE WINDOW</span></h2><canvas id="activity" aria-label="Rolling CSI amplitude variation"></canvas></section></div>
+<section class="panel history"><h2>CSI history <span id="history-label">—</span></h2><canvas id="heat" aria-label="CSI amplitude heatmap"></canvas></section>
+</main></div>
+<section class="transport panel"><button id="reset" title="First sample" disabled>↤</button><button id="pause" disabled>Play</button><span id="position">—</span><input id="seek" type="range" min="0" max="199" step="1" value="199" aria-label="Sample position" disabled><span id="last-sample">—</span><span class="transport-unit">SAMPLE</span></section>
+<p id="status" class="status" role="status">Connect a receiver, or open a CSI file.</p>
+<details id="about" class="about panel"><summary>Data, hardware & documentation</summary><div class="about-grid"><div><h3>Loaded source</h3><p id="source-info">—</p><p id="geometry">—</p><p id="source-note">—</p></div><div><h3>Connect your receiver</h3><p>Flash the pinned Espressif csi_recv firmware, close other serial monitors, then select Connect USB in desktop Chrome or Edge. Data stays in this browser.</p><p>Open amplitude CSV, ESP-IDF CSI CSV or compatible JSON to inspect saved measurements. The data surface shows sample index, CSI bin and magnitude; it does not estimate body shape or location.</p><p>Playback speed is a display control, separate from the acquisition rate. Bundled sample timing is unavailable.</p><div class="doclinks"><a href="README.md" target="_blank">Quick start ↗</a><a href="docs/FILE_FORMAT.md" target="_blank">File format ↗</a><a href="docs/HARDWARE.md" target="_blank">Hardware guide ↗</a><a href="docs/FIRMWARE.md" target="_blank">Firmware ↗</a><a href="METHOD.md" target="_blank">Method ↗</a></div></div></div></details>
+<footer><span>CSI explorer · local workspace</span><a href="data/ATTRIBUTION.md" target="_blank">Bundled data: Mohammed-Baqir · CC BY 4.0</a><span>v0.6</span></footer>
+<div id="error" role="alert" hidden></div>
+<script type="module" src="app.js"></script></body></html>
