@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "upstream": "https://github.com/espressif/esp-csi",
+  "revision": "8633d67152db2808f141cc1595970aa9cf406045",
+  "archive_url": "https://codeload.github.com/espressif/esp-csi/zip/8633d67152db2808f141cc1595970aa9cf406045",
+  "archive_sha256": "bf12244361642f729ace3099518b011fa3eaadf31d7281d42cd723996578dda6",
+  "archive_root": "esp-csi-8633d67152db2808f141cc1595970aa9cf406045",
+  "include": ["LICENSE", "NOTICE", "README.md", "examples/get-started/"],
+  "license": "Apache-2.0 (retain upstream per-file notices)",
+  "target": "esp32c3",
+  "board": "ESP32-C3-DevKitM-1",
+  "esp_idf": "6.0.2",
+  "esp_idf_revision": "7101770dc6db2667b3c477cc31365dd1acd6db4e",
+  "components": {
+    "espressif/esp_csi_gain_ctrl": "0.1.4",
+    "espressif/cmake_utilities": "0.5.3"
+  },
+  "projects": {
+    "sender": "examples/get-started/csi_send",
+    "receiver": "examples/get-started/csi_recv"
+  },
+  "compatibility_patch": {
+    "description": "IDF 6 bandwidth enum rename only; radio settings and logic unchanged.",
+    "source_sha256": {
+      "sender": "c7272390dad84e046d01cf21ac08179c04f02f59a28fc6d1b7eaf3d04960c5ba",
+      "receiver": "d13aa1357eed41ed6b57293683ae5dcd7572f37ca3cc729125ec8caf68047389"
+    },
+    "replacements": [
+      {"old": "WIFI_BW_HT20", "new": "WIFI_BW20", "count_per_file": 4},
+      {"old": "WIFI_BW_HT40", "new": "WIFI_BW40", "count_per_file": 3}
+    ]
+  },
+  "receiver_baud": 921600,
+  "sender_console_baud": 115200,
+  "radio": {
+    "band": "2.4 GHz",
+    "channel": 11,
+    "bandwidth": "HT40",
+    "secondary_channel": "below",
+    "phy_rate": "MCS0 LGI",
+    "send_frequency_target_hz": 100,
+    "sender_mac": "1a:00:00:00:00:00",
+    "peer_mac": "ff:ff:ff:ff:ff:ff"
+  },
+  "local_changes": [
+    "Pin each example's IDF requirement to 6.0.2.",
+    "Pin receiver gain control and cmake utilities component versions.",
+    "Rename removed WIFI_BW_HT20/WIFI_BW_HT40 enum names to WIFI_BW20/WIFI_BW40 for IDF 6 in sender and receiver; retain original C files."
+  ]
+}

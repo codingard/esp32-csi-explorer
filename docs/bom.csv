@@ -1,0 +1,6 @@
+quantity,item,specification,purpose
+2,ESP32-C3-DevKitM-1,ESP32-C3-MINI-1 PCB antenna with onboard USB-to-UART bridge,One CSI sender and one receiver
+2,USB data cable,Host connector to board Micro-B with data lines,Flashing power and receiver serial data
+1,Computer,Desktop Chrome or Edge plus Node.js 20+ Python 3 and ESP-IDF 6.0.2,Build and local viewer
+2,Nonmetal support,Stable fixed antenna placement,Repeatable geometry
+1,USB hub optional,Powered hub if host lacks ports,Connect and power both boards

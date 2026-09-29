@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="590" viewBox="0 0 1100 590" role="img" aria-labelledby="title desc">
+  <title id="title">Two ESP32-C3 boards and browser CSI viewer</title>
+  <desc id="desc">Example arrangement, not measured dataset geometry. Two fixed boards communicate over Wi-Fi more than one metre apart. Both are USB powered; receiver data passes through its onboard USB-to-UART bridge to the computer. No wires connect the boards.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10Z" fill="#28a9a2"/></marker></defs>
+  <rect width="1100" height="590" rx="18" fill="#101a23"/>
+  <g fill="#e7f0f4" font-family="system-ui, sans-serif">
+    <text x="48" y="55" font-size="25" font-weight="650">Two-board CSI setup</text>
+    <text x="48" y="85" font-size="15" fill="#a7bdc9">Example arrangement · not to scale · no GPIO wiring between boards</text>
+    <rect x="75" y="135" width="245" height="180" rx="12" fill="#192b38" stroke="#54717e"/>
+    <rect x="780" y="135" width="245" height="180" rx="12" fill="#192b38" stroke="#54717e"/>
+    <g stroke="#d6b15b" stroke-width="5" fill="none"><path d="M155 177v-19h18v19h18v-19h18v19h18v-19h18v19"/><path d="M860 177v-19h18v19h18v-19h18v19h18v-19h18v19"/></g>
+    <text x="198" y="218" text-anchor="middle" font-size="19">TX · csi_send</text>
+    <text x="902" y="218" text-anchor="middle" font-size="19">RX · csi_recv</text>
+    <text x="198" y="250" text-anchor="middle" font-size="14" fill="#a7bdc9">ESP32-C3-DevKitM-1</text>
+    <text x="902" y="250" text-anchor="middle" font-size="14" fill="#a7bdc9">ESP32-C3-DevKitM-1</text>
+    <text x="198" y="280" text-anchor="middle" font-size="14" fill="#a7bdc9">Fixed antenna orientation</text>
+    <text x="902" y="280" text-anchor="middle" font-size="14" fill="#a7bdc9">UART0 via onboard bridge</text>
+    <path d="M345 200H752" stroke="#28a9a2" stroke-width="3" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+    <text x="550" y="161" text-anchor="middle" font-size="18">2.4 GHz · channel 11 · HT40</text>
+    <text x="550" y="233" text-anchor="middle" font-size="15" fill="#a7bdc9">ESP-NOW broadcast · target 100 packets/s</text>
+    <text x="550" y="267" text-anchor="middle" font-size="15" fill="#a7bdc9">Antenna spacing &gt; 1 m</text>
+    <text x="550" y="292" text-anchor="middle" font-size="13" fill="#8ba6b3">Suggested trial: 2 m apart, both 1 m high</text>
+    <rect x="360" y="386" width="380" height="112" rx="12" fill="#192b38" stroke="#54717e"/>
+    <text x="550" y="425" text-anchor="middle" font-size="21">Computer · CSI Explorer</text>
+    <text x="550" y="456" text-anchor="middle" font-size="15" fill="#a7bdc9">Chrome / Edge · localhost · Web Serial</text>
+    <text x="550" y="481" text-anchor="middle" font-size="14" fill="#a7bdc9">3D signal surface + traces + saved capture</text>
+    <path d="M198 315V442H337" fill="none" stroke="#7b96a6" stroke-width="3"/>
+    <path d="M902 315V442H762" fill="none" stroke="#28a9a2" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="80" y="369" font-size="14" fill="#a7bdc9">USB power / flashing</text>
+    <text x="778" y="363" font-size="14">USB power + data</text>
+    <text x="778" y="387" font-size="14" fill="#a7bdc9">921600 baud · RX port</text>
+    <text x="48" y="552" font-size="14" fill="#a7bdc9">Keep antennas, supports and cables still. Log actual placement and motion; the viewer does not estimate body coordinates.</text>
+  </g>
+</svg>
