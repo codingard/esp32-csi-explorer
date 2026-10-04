@@ -226,3 +226,15 @@ function frame(now) {
 }
 if (!navigator.serial) message('USB needs desktop Chrome or Edge on localhost/HTTPS. File viewing is available in this browser.');
 resetView(); statusView(); requestAnimationFrame(frame);
+
+// An explicit demo URL opens attributed recordings; the hardware URL stays empty.
+if (new URLSearchParams(location.search).get('demo') === 'walking') {
+  await $('samples').onclick();
+  if (source === 'file' && clip) {
+    const walking = dataset.clips.find(c => /walking/i.test(c.label));
+    if (walking) { select(walking.id); $('session').value = walking.id; }
+    $('window').value = '64'; $('speed').value = '10'; $('loop').checked = true;
+    index = Math.min(64, clip.t.length - 1); playing = true; dirty = true;
+    controls();
+  }
+}

@@ -5,7 +5,16 @@ it sends: amplitude traces, a CSI heatmap and a 3D bin × sample × magnitude su
 This is a local hardware project with pinned transmitter/receiver firmware and a
 browser client. It starts with empty plots until measurements arrive.
 
-![Interface awaiting measurements](docs/interface.jpg)
+**[Open the explorer](https://codingard.github.io/esp32-csi-explorer/)** ·
+**[Watch the recorded-data demo](https://codingard.github.io/esp32-csi-explorer/?demo=walking)**
+
+The hosted explorer works immediately, without installing Node.js. Use desktop
+Chrome or Edge for USB input, or open the demo link to explore published recordings.
+
+![Explorer displaying published walking-session CSI measurements](docs/interface.jpg)
+
+*Actual interface with attributed recorded data loaded, shown in Present mode.
+The hardware view starts empty until a receiver is connected.*
 
 [Hardware and wiring](docs/HARDWARE.md) · [Pinned firmware](docs/FIRMWARE.md) ·
 [Physical acceptance](docs/TESTING.md) · [File format](docs/FILE_FORMAT.md)
