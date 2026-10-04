@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-04",
+  "target": "esp32c3",
+  "esp_idf": "6.0.2",
+  "upstream_revision": "8633d67152db2808f141cc1595970aa9cf406045",
+  "project_version": "csi-8633d67152db",
+  "compatibility_patch": "WIFI_BW_HT20/HT40 enum names changed to WIFI_BW20/40; documented pinned transformation",
+  "physical_acceptance": "pending; no boards flashed",
+  "artifacts": {
+    "sender": {
+      "name": "csi_send.bin",
+      "bytes": 781984,
+      "sha256": "0c690ea0061f6484ffa54ed93b83a43cb259fedd60eb031acbfb1e21c49e6d03",
+      "dependencies_lock": "dependencies:\n  idf:\n    source:\n      type: idf\n    version: 6.0.2\ndirect_dependencies:\n- idf\nmanifest_hash: c22444087edeb17df9e77f9eda06320cba40c720b10e2b8e8fb06f8453c3b31c\ntarget: esp32c3\nversion: 3.0.0\n"
+    },
+    "receiver": {
+      "name": "csi_recv.bin",
+      "bytes": 786080,
+      "sha256": "7c547778667f9d741bd756fbd6e071e36bb0fdaf86092bf9258242c5c2861045",
+      "dependencies_lock": "dependencies:\n  espressif/cmake_utilities:\n    component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f\n    dependencies:\n    - name: idf\n      require: private\n      version: '>=4.1'\n    source:\n      registry_url: https://components.espressif.com/\n      type: service\n    version: 0.5.3\n  espressif/esp_csi_gain_ctrl:\n    component_hash: 2daa822dec53827649af1e8839c3ec24209495cf6e87102e1cd08cc17a856d0f\n    dependencies:\n    - name: espressif/cmake_utilities\n      registry_url: https://components.espressif.com\n      require: private\n      version: 0.*\n    - name: idf\n      require: private\n      version: '>=4.4.1'\n    source:\n      registry_url: https://components.espressif.com/\n      type: service\n    targets:\n    - esp32\n    - esp32s3\n    - esp32s2\n    - esp32c3\n    - esp32c5\n    - esp32c6\n    - esp32c61\n    version: 0.1.4\n  idf:\n    source:\n      type: idf\n    version: 6.0.2\ndirect_dependencies:\n- espressif/cmake_utilities\n- espressif/esp_csi_gain_ctrl\n- idf\nmanifest_hash: 8dff821d01fafe7b722e41e83e2aa5fcea78525d53203f189cf99034e1c9ea85\ntarget: esp32c3\nversion: 3.0.0\n"
+    }
+  }
+}
